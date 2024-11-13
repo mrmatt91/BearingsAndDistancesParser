@@ -45,8 +45,11 @@ namespace BearingsAndDistancesParser
                                 if(!lines.Any() || lines.FirstOrDefault().Point != lineObj.Point)
                                 {
                                     var lineData = reader.ReadLine();
-                                    lines.Add(BuildLine(lineObj, lineData));
-                                    flowLayoutPanel1.Controls.Add(new BearingDistance(lineObj));
+                                    if (lineData != null)
+                                    {
+                                        lines.Add(BuildLine(lineObj, lineData));
+                                        flowLayoutPanel1.Controls.Add(new BearingDistance(lineObj));
+                                    }
                                 }
                             }
                         }

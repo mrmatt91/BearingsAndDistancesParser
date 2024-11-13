@@ -49,7 +49,7 @@ namespace BearingsAndDistancesParser
             {
                 var distance1Values = ((decimal)distanceValue1 / 100).ToString().Split('.');
                 var hundredsString = (int.Parse(distance1Values[0]) * 100).ToWords();
-                var decimalValue = (int.Parse(distance1Values[1])).ToWords();
+                var decimalValue = (distance1Values.Length > 1 ? (int.Parse(distance1Values[1])).ToWords() : "");
                 distanceString1 = $"{hundredsString} {decimalValue}";
             }
             else
